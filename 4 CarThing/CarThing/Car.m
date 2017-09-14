@@ -17,9 +17,18 @@
     }
 }
 
-- (void)initWithModel:(NSString *)model
+- (instancetype)init
 {
-    _model = model;
+    return [self initWithModel:@"Unknown"];
+}
+
+// Designated initializer
+- (instancetype)initWithModel:(NSString *)model
+{
+    if(self = [super init]) {
+        _model = model;
+    }
+    return self;
 }
 
 @end

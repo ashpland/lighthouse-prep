@@ -10,13 +10,10 @@
 
 @implementation Toyota
 
-- (id)init{
-    return [self initToyota];
-}
 
-- (id)initToyota{
-    self.model = @"Prius";
-    return self;
+- (instancetype)init
+{
+    return [super initWithModel:@"Prius"];
 }
 
 @end

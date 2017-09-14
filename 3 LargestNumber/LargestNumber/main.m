@@ -7,17 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-
-NSNumber* largestNumberIn(NSArray* array){
-    NSNumber *largest = [[NSNumber alloc] init];
-    for (NSNumber *n in array){
-        if (!largest || [n isGreaterThan:largest]){
-            largest = n;
-        }
-    }
-    return largest;
-}
+#import "ArrayUtilities.h"
 
 
 int main(int argc, const char * argv[]) {
@@ -27,9 +17,11 @@ int main(int argc, const char * argv[]) {
         NSArray *testArray2 = @[@44, @5, @6];
         NSArray *testArray3 = @[@7, @(-4), @12, @3];
         
-        NSLog(@"The largest number in Array 1 is %@", largestNumberIn(testArray1));
-        NSLog(@"The largest number in Array 2 is %@", largestNumberIn(testArray2));
-        NSLog(@"The largest number in Array 3 is %@", largestNumberIn(testArray3));
+        ArrayUtilities *arrayBot = [[ArrayUtilities alloc] init];
+        
+        NSLog(@"Array 1 - Largest: %@, Smallest: %@, Average: %@", [arrayBot largestNumberIn:testArray1], [arrayBot smallestNumberIn:testArray1], [arrayBot averageOf:testArray1]);
+        NSLog(@"Array 2 - Largest: %@, Smallest: %@, Average: %@", [arrayBot largestNumberIn:testArray2], [arrayBot smallestNumberIn:testArray2], [arrayBot averageOf:testArray2]);
+        NSLog(@"Array 3 - Largest: %@, Smallest: %@, Average: %@", [arrayBot largestNumberIn:testArray3], [arrayBot smallestNumberIn:testArray3], [arrayBot averageOf:testArray3]);
         
     }
     return 0;
